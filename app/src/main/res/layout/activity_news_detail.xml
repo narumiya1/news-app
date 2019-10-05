@@ -1,0 +1,195 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+           android:id="@+id/collapsing_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+
+            app:toolbarId="@+id/toolbar">
+
+            <ImageView
+                android:id="@+id/backdrop"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:scaleType="centerCrop"
+                android:transitionName="img"
+                app:layout_collapseMode="parallax" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/top_shadow">
+
+                </ImageView>
+
+                <ImageView
+                    android:id="@+id/img2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/bottom_shadow"></ImageView>
+            </RelativeLayout>
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_on_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Latest News"
+                        android:textColor="@color/colorBackground"></TextView>
+
+                    <TextView
+                        android:id="@+id/subtitle_on_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Subtitle"
+                        android:textColor="@color/colorBackground">
+
+                    </TextView>
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fitsSystemWindows="true"
+
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="WebViewLayout">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="4dp"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:text="Title"
+                        android:textSize="14dp"></TextView>
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/title"
+                        android:layout_marginLeft="12dp"
+                        android:text="a time a go"
+                        android:textSize="14dp">
+
+                    </TextView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            </ProgressBar>
+
+            <WebView
+                android:id="@+id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            </WebView>
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+        android:id="@+id/layout_date_behavior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img"
+
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+
+        android:layout_marginBottom="410dp"
+
+        android:background="@drawable/round_white"
+        android:clickable="false"
+
+
+        app:layout_anchor="@id/appbar"
+        app:layout_anchorGravity="right|end|bottom">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_date">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 Jan 1999"
+            android:layout_marginRight="11dp"
+            android:layout_marginLeft="27dp"></TextView>
+
+    </FrameLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
